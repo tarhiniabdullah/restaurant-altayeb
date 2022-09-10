@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html  >
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <head>
+        <title>Delivery @altayebresto</title>
+        <link rel="icon" href="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png" type="image/x-icon">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-app="myapp" background="https://static.vecteezy.com/system/resources/previews/007/073/093/original/food-delivery-ordering-concept-food-picture-in-laptop-screen-and-delivery-man-staff-illustration-delivery-service-concept-background-free-vector.jpg" 
+          >
+        <style>
+            body{
+               background-repeat: no-repeat;
+                background-size: 100%;
+                overflow: scroll;
+                height: 1000px;
+                background-color:#B73025;
+            }
+            .t1{
+                color:orange;
+                font-family: sans-serif;
+                opacity:0.5;
+            }
+            .address{
+                background-color: whitesmoke;
+               opacity:0.8;
+                width: 700px;
+                height: 650px;
+                
+                border-radius: 10px;
+                border:5px solid orange;
+                margin-left:350px;
+                margin-top: -190px;
+                background-position-y: 100%;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-image: url(https://c8.alamy.com/comp/2AD920J/food-delivery-service-by-scooter-with-courier-mobile-application-tracking-a-delivery-man-on-a-moped-city-skyline-in-the-background-2AD920J.jpg);
+         z-index: 50;
+            }
+            input {
+                opacity:0.9;
+            }
+            #name{
+                width: 90%;
+                border-radius: 5px;margin-left: 10px;
+            }
+            #phonenumber{
+                width: 90%;
+                border-radius: 5px;margin-left: 10px;
+            }
+            .det{
+                color:red;
+                
+            }
+            p{
+                font-family: sans-serif;
+                margin-left: 10px;
+              
+            }
+            #header{
+                width:100%;
+                height: 5px;
+                background-color: black;
+            }
+            #ta{
+                width:90%;
+                height: 100px;margin-left: 10px;
+            }
+            #address{
+                font-family: sans-serif;
+                
+            }
+            #city{
+                width:90%;margin-left: 10px;
+            }
+            #country{
+                width:90%;margin-left: 10px;
+            }
+            #street{
+                width:90%;margin-left: 10px;
+            }
+            #floor{
+                width:90%;
+                margin-left: 10px;
+            }
+            #submit{
+                margin-right: 100px;
+                width:100px;
+                background-color:limegreen;
+                
+            }
+            #submit a{
+                text-decoration: none;
+            }
+            #reset{
+                background-color: red;
+            }
+             
+            .imgcontainer{
+                width:330px;
+                height:100px;
+                margin-left: 20px;
+            }
+            .imgcontainer img{
+                width:100px;
+                height: 100px;
+            }
+               img:hover{
+                    transform: scale(1.1);
+                   
+                    transition-duration: 1s
+                }
+            .restlogo img{
+                width: 200px;
+                height:150px;
+                margin-left: 20px;
+                margin-bottom: 30px;
+            }
+            input.ng-invalid{
+                background-color:lightcoral;
+            }
+            input.ng-valid{
+                background-color: greenyellow;
+            }
+            
+             textarea.ng-invalid{
+                background-color: lightcoral;
+            }
+            textarea.ng-valid{
+                background-color: greenyellow;
+            }
+            #corange{
+                color:orange;
+            }
+            .bgcgreen{
+                background-color:greenyellow;
+            }
+            .thenumbers{
+                width:250px;
+                background-color: yellow;
+                
+            }
+            .thenumbers a{
+                text-decoration: none;
+                color:black;
+            }
+            ::-webkit-input-placeholder{
+                color:gold;
+            }
+            .message{
+                width:200px;
+                height: 60px;
+                padding:10px;
+                border-radius: 10px;
+                background-color: red;
+                color: white;
+                position: absolute;
+                margin-left: 200px;
+                z-index: 60;
+                opacity: 0.8;
+                
+            }
+        </style>
+        <h1 align="center" class="t1" ng-controller="intro">{{d}}{{e1}}{{l}}{{i}}{{v}}{{e2}}{{r}}{{y}}</h1>
+        <div class="restlogo">
+            <a href="index.html">  <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png"></a>
+        </div>
+        <div class="imgcontainer" ng-controller="phonenumbers">
+            <a href="index.html"><img src="https://icon-library.com/images/home-icon-png/home-icon-png-7.jpg"></a>
+            <img src="https://purepng.com/public/uploads/large/purepng.com-phone-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596098aomr5.png" ng-click="choosenumber()">
+            
+            <a   id="sorry" ng-mouseover="showmore()"><img src="https://previews.123rf.com/images/sarahdesign/sarahdesign1505/sarahdesign150504177/40149606-contact-us-icon.jpg"></a><br>
+            <p class="message" ng-show="themore" ><strong>sorry</strong>, unable to email us now please try later and thank you </p>
+            <ol class="thenumbers" ng-show="shownumbers">  <li><a href="tel:+961 70389556">phone number 1: 70/389556</a><hr></li>
+                <li><a href="tel:+961 71657732">phone number 2: 71/657732</a></li></ol>
+        </div>
+   
+        <div class="address"  >
+            <form id="address" action="orderdelivery.html" ng-controller="welcome"><br>
+               &nbsp;&nbsp; name:<br><input type="text" placeholder="enter your name" id="name"ng-model="name" required><hr>
+               &nbsp;&nbsp; phone number:<br><input type="tel" placeholder="enter your phone number" id="phonenumber" value="+961| " onkeypress="return onlyNumberKey(event)"ng-model="phone" required><hr>
+                <p><font size="2px"> enter the address <span class="det"> <i><b>in details </b></i></span></font></p><hr id="header">
+                &nbsp;&nbsp; address :<b id="corange">it must contains "-"</b><em>ex:Nabatieh- blabla</em><br><textarea placeholder="please enter your address in detail " id="ta" ng-model="address" required></textarea><hr><br>
+               &nbsp;&nbsp; city:<br><input type="text" id="city"ng-model="city" required><hr>
+               &nbsp;&nbsp; country :<br><input type="text" id="country"ng-model="country" required><hr>
+              &nbsp;&nbsp;  street :<br><input type="text" id="street" ng-model="street"required><hr>
+              &nbsp;&nbsp; floor :<br><input type="text" id="floor"ng-model="floor" required><hr><center>
+                  <input type="submit" id="submit" value="order" ng-click="submit()"><input type="reset" id="reset"></center><br>
+                  <h1 class="bgcgreen" ng-show="showme">welcom mr.{{name}}</h1>
+            </form>
+   </div>
+        <script>
+             function onlyNumberKey(evt) {
+        var only = (evt.which) ? evt.which : evt.keyCode
+        if (only > 31 && (only < 48 || only > 57))
+            return false;
+        return true;
+    }
+    
+    
+    document.getElementById('sorry').addEventListener('click',function(){alert('SORRY sir ,\nyou cannot email us right now accordind to SYSTEM PROBLEMS\nplease try later and THANK YOU');});
+    
+    
+     var app=angular.module('myapp',[]);
+    app.controller('welcome',function($scope){
+       $scope.showme=false;
+       $scope.submit=function(){
+           $scope.showme=!$scope.showme;
+       };
+       
+    });
+    app.controller('intro',function($scope,$timeout){
+       $scope.d="D";
+       $timeout(function(){
+           $scope.e1="e";
+       },1000);
+       $timeout(function(){
+           $scope.l="l";
+       },1500);$timeout(function(){
+           $scope.i="i";
+       },2000);$timeout(function(){
+           $scope.v="v";
+       },2500);$timeout(function(){
+           $scope.e2="e";
+       },3000);$timeout(function(){
+           $scope.r="r";
+       },3500);$timeout(function(){
+           $scope.y="y";
+       },4000);
+    });
+    app.controller('phonenumbers',function($scope){
+       $scope.choosenumber=function(){
+           $scope.shownumbers=!$scope.shownumbers;
+       } 
+       $scope.showmore=function(){
+           $scope.themore=!$scope.themore;
+       }
+    });
+        </script>
+    </body>
+</html>

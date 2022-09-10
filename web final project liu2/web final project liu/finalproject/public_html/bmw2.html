@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2022 BMW X6</title>
+
+
+<style>
+body{overflow:scroll;
+	height:2000px;
+	background-repeat:no-repeat;
+	background-size:100%;
+	}
+.container{
+	width:900px;
+	height:550px;
+	margin-left:25%;
+	margin-top:2%;
+	
+}
+ .container2{
+	
+	width:500px;
+	height:350px;
+	margin-left:400px;
+	background:white;
+	border:2px solid black;
+}
+.small{
+	width:50px;
+}
+#totalsum{
+	margin-left:10px;
+}
+#rent{
+	margin:10px;
+	margin-left:80px;
+}
+.fixed{
+	position:fixed;
+}
+</style>
+</head>
+<body>
+
+
+<body bgcolor="grey">
+<a href="index.html"><button class="fixed">&#10060;</button></a>
+<div><img src="https://www.motortrend.com/uploads/sites/10/2021/10/2022-bmw-x6-m50i-4wd-suv-angular-front.png"class="container"></div>
+<div class="container2"><h1 align="center">2022 BMW X6</h1><br/>
+&nbsp;90$/day<br/>
+&nbsp;duration of renting(in days)&nbsp;<input id="num1" type="number"class="small"min="0">&nbsp;day/s&nbsp;<button onclick="multiply()">check price</button>
+<br/>&nbsp;total price: <h1 id="totalsum"> </h1>&nbsp;date of rent:&nbsp;<input type="date"><a href="index.html"><button id="rent">&#128722;</button></a>
+</div>
+<script>
+document.getElementById('rent').addEventListener('click',function(){alert('thank you for renting');})
+</script>
+<script>
+function multiply(){
+	var a;
+	var b=90;
+	a=document.getElementById("num1").value;
+	s=a*b;
+	
+//	alert(a>b);
+ 
+	document.getElementById("totalsum").innerHTML=s+"&#128178;";
+}
+</script>
+
+
+</body>
+</html>

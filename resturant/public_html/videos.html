@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myapp" >
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <title>Al Tayeb Restaurant</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png" type="image/x-icon">
+        <style>
+            body{
+                background-color:steelblue;
+            }
+            button{
+                margin-left: 350px;
+                
+            }
+            video{
+                margin-top: 20px;
+                background-color: white;
+            }
+            h1{
+                margin-right: 380px;
+            }
+            img{
+                width:100px;
+                height: 100px;
+            }
+            img:hover{
+                transition-duration: 3s;
+                transform: rotate(360deg);
+            }
+            .subtitle{
+                margin-left:250px;
+                margin-top: -100px;
+                animation: vid;
+                animation-duration: 3s;
+                animation-iteration-count:infinite;
+                animation-timing-function:linear;
+                animation-fill-mode:both;
+            }
+            @keyframes vid{
+                25%{
+                    color:blue;
+                }
+                50%{
+                   
+                    color:purple;
+                }
+                75%{
+                    color:red;
+                }
+                100%{
+                    
+                    color:yellow;
+                }
+            }
+            .dm{
+                margin-left:100px;
+                background-image: url("https://data.tooliphone.net/iskin/themes/38389/20506/preview-256.png");
+                width: 33px;
+                height: 35px;
+                background-repeat: no-repeat;
+                background-size: 30px;
+            }
+            .darkmode{
+                background-color: black;
+                color:white;
+            }
+            .chicksub{
+                margin-left:200px;
+                
+            }
+        </style>
+    </head>
+    <body >
+        <a href="index.html"> <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png" title="home page"></a>
+        <h1 align="center" class="subtitle">Videos</h1><button class="dm" onclick="changedark()"></button>
+        <div ng-controller="videodiv" id="bgcwhite">
+          <button ng-click="showburger()">our burger video</button> 
+          <button ng-click="chickensub()">chicken sub video</button>
+            <div >
+                <center>  <video width="700" ng-show="burgervideo" controls>
+                    <source src="burger.mp4" type="video/mp4">
+                </video>
+                    <h1  ng-show="burgervideo">this is our burger video</h1>
+                <video width="700" ng-show="chickensubvideo" controls>
+                    <source src="chickensubsandwich.mp4" type="video/mp4">
+                </video>
+                    <h1  ng-show="chickensubvideo" class="chicksub">this is our chicken sub sandwich video</h1>
+                </center>
+            </div>
+        </div>
+      
+        <script>
+           var app=angular.module('myapp',[]);
+            app.controller('videodiv',function($scope){
+               $scope.showburger=function(){
+                   $scope.burgervideo=!$scope.burgervideo;
+               } 
+               $scope.chickensub=function(){
+                   $scope.chickensubvideo=!$scope.chickensubvideo;
+               }
+            });
+            function changedark(){
+                
+                document.body.classList.toggle("darkmode");
+                
+            }
+                            
+        
+        </script>
+    </body>
+</html>

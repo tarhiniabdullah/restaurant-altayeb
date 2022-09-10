@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html ng-app="myapp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+        <title>Sign Up/Al Tayeb Resturant</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="icon" href="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png" type="image/x-icon">
+    </head>
+  
+    <body background="https://hips.hearstapps.com/delish/assets/17/26/1498851838-shot-2-195.jpg" ng-controller="signupshow">
+         <style>
+            body{
+                background-repeat: no-repeat;
+                background-size: 100%;
+                overflow: scroll;
+                height: 3000px;
+            }
+            #title{
+                color:black;
+                margin-top: -50px;
+            }
+            .home{
+                border-radius:40px;
+                margin-left: 20px;
+            }
+            .home a{
+                text-decoration: none;
+            }
+            .imglogo img{
+                 width:100px;
+                height: 75px;
+               
+            }
+            #submit{
+                background-color: green;
+                width: 100px;
+                margin-right: 20px;
+                
+            }
+            #reset{
+                background-color: red;
+                width:75px;
+                
+            }
+            .signin{
+                width:400px;
+                height: 400px;
+                background-color:whitesmoke;
+                opacity:0.7;
+                margin-left: 50%;
+            }
+            
+            #showpassid{
+                width:20px;
+                margin-right: 20px;
+            }
+            #text{
+                width:100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            #hidepassword{
+                width:100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            #email{
+                width:100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .privacyandpolice{
+                width:360px;
+                height: 160px;
+                overflow: scroll;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .signin input.ng-invalid{
+                background-color:lightblue;
+            }
+            .signin input.ng-valid{
+                background-color:springgreen;
+            }
+            .signup{
+                position: absolute;
+                width:400px;
+                height: 500px;
+                margin-left: 100px;
+                margin-top: 50px;
+                background-color: white;
+               opacity:0.8;
+            }
+            .signup input.ng-invalid{
+                background-color:palegoldenrod;
+            }
+            .signup input.ng-valid{
+                background-color:green;
+            }
+            .titlesignup{
+                margin-left:20px;
+            }
+            .submit{
+                padding:10px 10px 10px 10px;
+                background-color:mediumturquoise;
+                margin-top: 5px;
+            }
+            .submit:hover{
+                background-color:springgreen;
+            }
+            .reset{
+                padding: 10px 10px 10px 10px;
+                background-color:salmon;
+                margin-top: 5px;
+            }
+            .reset:hover{
+                background-color:orangered;
+            }
+            .signup input{
+                margin-left: 10px;
+                margin-bottom: 5px;
+                margin-top: 5px;
+                width:350px;
+            }
+            .underlineblue{
+                color:blue;
+            }
+            .underlineblue:active{
+                color:orchid;
+            }
+            #red{
+                color:red;
+                margin-left: 20px;
+            }
+        </style>
+        <div class="imglogo">
+    <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png">
+         
+        <h1 id="title" align="center">Welcome To<br> Al Tayeb Resturant</h1><hr>
+        <button class="home"><a href="index.html">Home</a></button>
+        <div class="signup" ng-show="showsign">
+            <h3 class="titlesignup">Sign Up</h3><br>
+            <i id="red">the password and confirm password must be same </i><hr>
+            <form>
+                <input type="text" id="textup" placeholder="please enter your first name" ng-model="fn" title="enter your name" required><br>
+                <input type="text" id="text2up" placeholder="please enter your second name" ng-model="upn" title="enter your fullname" required><br>
+                <input type="email" id="emailup" placeholder="please enter your email" ng-model="upemail" title="your email" required><br>
+                <input type="tel" id="phoneup" placeholder="please enter your phone number" ng-model="upphone" title="your phone number" value="+961| " onkeypress="return onlyNumberKey(event)" required><br>
+                <input type="text" id="t1" placeholder="enter your new password" ng-model="uppass" title="new password" required><br>
+                <input type="text" id="t2" placeholder=" confirm your password" ng-model="uppassword" title="confirm password" required><br>
+                
+            <input type="submit" class="submit" onclick="check()" value="Confirm"title="save all and submit"><input type="reset" class="reset" value="Delete All" title="will reset all you write">
+            </form>
+        </div>
+        <fieldset class="signin">
+            <legend ><font size="5px"> Sign In </font></legend>
+            <form>
+                <input type="text" id="text" placeholder="enter your name please" ng-model="inname" required><br>
+                <input type="email" id="email" placeholder="enter your email please" ng-model="inemail" required><br>
+                <input type="password" id="hidepassword" placeholder="enter your password" ng-model="inpass" required><hr>
+                <input type="checkbox" id="showpassid" onclick="showpass()" title="show password">
+                <input type="submit" id="submit"><input type="reset" id="reset"><br><p align="right"><u class="underlineblue" ng-click="showsignup()">sign up</u></p><hr>
+                <div class="privacyandpolice">
+                    <pre>This website is maintained by the NSW Police Force.
+ This Online Privacy Statement applies to all the publicly-accessible web pages
+ within this website located at
+ URL <a href="http://www.police.nsw.gov.au">http://www.police.nsw.gov.au</a> 
+ and to all the publicly-accessible web pages listed in the search results function.
+ However, we do not take any responsibility
+for the privacy practices or policies of any third party websites linked to or from this website.
+ When you interact with this website or send the NSW Police
+ Force a message through the <a href="tel:+971 70389556">"Contact Us"</a> web page,
+ we may collect personal information about you
+                    </pre>
+                </div>
+            </form>
+        </fieldset>
+        <script>
+            
+           let pass=document.getElementById("hidepassword");
+            let showpass=()=>{
+                if(pass.type==="password"){
+                    pass.type="text";
+                }
+                else{
+                    pass.type="password";
+                }
+            };
+            function check(){
+                let t1=document.getElementById("t1").value;
+                let t2=document.getElementById("t2").value;
+                let name1=document.getElementById("textup");
+                let name2=document.getElementById("text2up");
+                let email=document.getElementById("emailup");
+                if(t1===t2){
+                    alert("welcome");
+                }
+                else{
+                    alert("password and confirm password must be the same !");
+                }
+            }
+           
+                 function onlyNumberKey(evt) {
+        var only = (evt.which) ? evt.which : evt.keyCode
+        if (only > 31 && (only < 48 || only > 57))
+            return false;
+        return true;
+    }
+    var app=angular.module('myapp',[]);
+    app.controller('signupshow',function($scope){
+     //   $scope.showsign=false;
+        $scope.showsignup=function(){
+            $scope.showsign=!$scope.showsign;
+        }
+    });
+  
+        
+        </script>
+    </body>
+</html>

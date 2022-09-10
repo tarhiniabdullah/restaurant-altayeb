@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myapp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <title>Take Away@altayebresto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png" type="image/x-icon">
+    </head>
+    <body background="https://img.freepik.com/free-photo/restaurant-interior_1127-3394.jpg?w=360" >
+        <style>
+            body{
+                background-repeat: no-repeat;
+                background-size: 100%;
+                overflow: scroll;
+                height:800px;
+            }
+             .imgcontainer{
+                width:330px;
+                height:100px;
+                margin-left: 20px;
+            }
+            .imgcontainer img{
+                width:100px;
+                height: 100px;
+                
+            } .restlogo img{
+                width: 200px;
+                height:150px;
+                margin-left: 20px;
+                margin-bottom: 30px;}
+                   img:hover{
+                    transform: scale(1.1);
+                   
+                    transition-duration: 1s
+                }
+            .t1{
+                color:red;
+                font-family: sans-serif;
+                opacity:0.5;
+            }
+            .ordername{
+                               opacity:0.8;
+                width: 700px;
+                height: 200px;
+                background-color: white;
+                border-radius: 10px;
+                border:5px solid red;
+                margin-left:350px;
+                margin-top: -250px;
+                background-position-y: 100%;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }#submit{
+                margin-right: 100px;
+                width:100px;
+                background-color:limegreen;
+                
+            }
+            #submit a{
+                text-decoration: none;
+                color:black;
+            }
+            #reset{
+                background-color: red;
+            } #ordername{
+                width: 90%;
+                border-radius: 5px;margin-left: 10px;
+            }
+            #time{
+                margin-left: 20px;
+            }
+            
+            input.ng-invalid{
+                background-color:lightpink;
+            }
+            input.ng-valid{
+                background-color: greenyellow;
+            }
+            #cred{
+                color:crimson;
+            }
+            .thenumbers{
+                background-color: yellow;
+                width: 250px;
+                
+            }
+            .thenumbers a{
+                text-decoration:none;
+                color:black;
+            }
+        </style>
+        <h1 align="center" id="cred" ng-controller="intro">{{t}}{{a1}}{{k}}{{e}}{{a2}}{{w}}{{a3}}{{y}}</h1>
+        <div class="restlogo">
+            <a href="index.html"> <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png"></a>
+        </div>
+        <div class="imgcontainer" ng-controller="phonenumbers">
+            <a href="index.html"><img src="https://icon-library.com/images/home-icon-png/home-icon-png-7.jpg"></a>
+            <img src="https://purepng.com/public/uploads/large/purepng.com-phone-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596098aomr5.png" ng-click="choosenumber()">
+            <a   id="sorry"><img src="https://previews.123rf.com/images/sarahdesign/sarahdesign1505/sarahdesign150504177/40149606-contact-us-icon.jpg"></a>
+            <ol ng-show="shownumbers" class="thenumbers">
+            <li><a href="tel:+961 70389556">phone number 1: 70/389556</a><hr></li>
+            <li><a href="tel:+961 71657732">phone number 2: 71/657732</a></li></ol>
+        </div>
+         <div class="ordername">
+             <form action="orderdelivery.html">
+                 &nbsp;&nbsp;name :<br><input type="text" placeholder="name of order" id="ordername" ng-model="type" required><hr>
+                 &nbsp;&nbsp;phone number :<br><input type="tel" placeholder="enter you phone number" id="ordername" value="+961 | " onkeypress="return onlyNumberKey(event)" ng-model="numberphone" required><hr>
+                 &nbsp;&nbsp; select time to take order<br><input type="time" id="time">
+                 
+                 <center>
+                     <input type="submit" id="submit" value="order">
+                     <input type="reset" id="reset">
+                 </center>
+             </form>
+         </div>
+         <script>
+              function onlyNumberKey(evt) {
+        var only = (evt.which) ? evt.which : evt.keyCode;
+        if (only > 31 && (only < 48 || only > 57))
+            return false;
+        return true;
+    }
+    document.getElementById('sorry').addEventListener('click',function(){alert('SORRY sir ,\nyou cannot email us right now accordind to SYSTEM PROBLEMS\nplease try later and THANK YOU');});
+    
+    var app=angular.module('myapp',[]);
+    app.controller('intro',function($scope,$timeout){
+       $scope.t="T";
+       $timeout(function(){
+           $scope.a1="a";
+       },500);
+       $timeout(function(){
+           $scope.k="k";
+       },1000);$timeout(function(){
+           $scope.e="e";
+       },1500);$timeout(function(){
+           $scope.a2="a";
+       },2000);$timeout(function(){
+           $scope.w="w";
+       },2500);$timeout(function(){
+           $scope.a3="a";
+       },3000);$timeout(function(){
+           $scope.y="y";
+       },3500);
+    });
+    app.controller('phonenumbers',function($scope){
+       $scope.choosenumber=function(){
+           $scope.shownumbers=!$scope.shownumbers;
+       } 
+    });
+         </script>
+    </body>
+</html>

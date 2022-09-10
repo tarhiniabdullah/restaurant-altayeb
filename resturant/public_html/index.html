@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myapp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+        <title>Al Tayeb Restaurant</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png" type="image/x-icon">
+    </head>
+
+    <body style="background-color: {{mycolor}}" background="https://cdn.winsightmedia.com/platform/files/public/2020-04/background/600x450/EUECB1EWkAAb2JD_1586541226.jpg?VersionId=AdC5p4CtGTLSHZv4SMgs2KruBe1.zfXS">
+        <style>
+            .title{
+                color: black;
+
+            }
+            body{
+                overflow:scroll;
+                height:700px;
+                background-repeat:no-repeat;
+                background-size:100%;
+              
+            }
+            /*nav bar*/
+            nav{
+                width:100%;
+                overflow:auto;
+                background-color: white;
+                position: fixed;
+                margin-top: -40px;
+                z-index: 40;
+
+            }
+            ul{
+                padding:0.9rem;
+                margin:0;
+                list-style:none;
+               
+
+            }
+           ul li{
+                float:left;
+            }
+            nav a{
+
+                width:150px;
+                text-decoration:none;
+                text-align:center; 
+                font-size:15px;
+                color:black;
+                padding:10px 5px;
+                font-family:arial;
+                transition:1s;
+            }
+            nav li{
+                margin-right: 20px;
+                margin-left: 10px;
+                
+            }
+            .bar{
+                font-family:arial;
+                user-select:none;
+            }
+          .bar:hover{
+               border-bottom: 1px solid blue;
+          }
+          .bar:active{
+              background-color:darksalmon;
+          }
+            .order{
+                background-color:gold;
+                border-radius: 2px;
+                border:1px solid black;
+                margin-left: 70px;
+                width: 80px;
+            }
+            h1{
+                font-family:sans-serif;
+            }
+            li img{
+                width:100px;
+                height: 75px;
+                padding-bottom: 10px;
+            }
+            .imgcontainer{
+                width: 100%;
+                z-index: 20;
+                margin-top: 120px;
+            }
+         .imgcontainer img{
+                width:400px;
+                height:400px;
+        
+            }   
+            .colorchange{
+                margin-left: 200px;
+            }
+            #cblue{
+                color:steelblue;
+                
+            }
+            #fonttype{
+                font-family:sans-serif;
+                color:orange;
+            }
+            .gift{
+                transition: all linear 0.5s;
+                width:400px;
+                height: 400px;
+                background-color: #83DDc2; 
+                position:absolute;
+                margin-left: 400px;
+                margin-top: 100px;
+                padding:10px;
+                z-index: 30;
+                opacity: 0.9;
+               
+            }
+            
+            input[ng-model="name"]{
+                width:300px;
+                   
+            }
+            .shadow{
+             text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5, 40px -17px 0px rgba(101,230,163,0.36);
+            }
+            .ng-hide{
+                height: 0;
+               
+            }
+            .white{
+                margin-left:500px;
+                margin-top: 75px;
+                position: absolute;
+                color:orange;
+            }
+            .finish{
+                background-color: grey;
+                position: absolute;
+            }
+            .thenumbers{
+                margin-left:170px;
+                background-color:#4074b5;
+                
+            }
+            
+            .hiddengift{
+                accent-color:green;
+            }
+            #num1{
+                color:yellow;
+            }#num2{
+                color:lightgreen;
+            }
+        </style>
+         
+    <center ng-controller="head"id="fonttype"> <h2 class="shadow">{{al}}&nbsp;{{tayeb}}&nbsp;<sub class="title">{{resturant}}</sub>
+        </h2>   <br> </center>
+   <nav style="background-color: {{mycolor}}"ng-controller="time">
+ 
+        <ul>
+            <li> <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png"></li>
+            <li class="bar"><a href="menu.html">Menu</a></li>
+            <li class="bar"><a href="sign.html">Sign In</a></li>
+             <li class="bar" ng-click="choosephone()">Call Us</li>
+             <li class="bar"><a href="videos.html">Videos</a></li>
+             <li ><button class="order"><a href="order.html">Order</a></button></li>
+            <li class="colorchange">color of navigation bar:&nbsp;<input type="color" ng-model="mycolor"></li>
+            <li>current time:&nbsp;<strong id="cblue" >{{currenttime}}</strong></li>
+            <li class="thenumbers" ng-show="shownumbers"><a href="tel:+961 70389556" id="num1">phone number 1: 70/389556</a><hr><a href="tel:+961 71657732" id="num2">phone number 2: 71/657732</a></li>
+         
+        </ul>
+    </nav>
+    
+   <h3 class="white"> hide:<input class="hiddengift" type="checkbox" ng-model="hideup"></h3>
+    <div ng-controller="gift">
+    <div ng-hide="hideup" class="gift">
+        <p>write your name to win some gifts !</p>
+        <input ng-model="name" placeholder="the name you will enter will not be removed !" ng-hide="hideup"><button ng-click="addname()" ng-hide="hideup">Add name</button>
+        <ol><li ng-repeat="x in names" ng-hide="hideup">{{x}}</li></ol>
+    </div>
+    </div>   
+    
+    <div class="imgcontainer">
+    <img  src="https://media.istockphoto.com/photos/foot-long-buffalo-chicken-ranch-sub-picture-id175204982?k=20&m=175204982&s=612x612&w=0&h=Gr14eyr37AaZiJoxxAIi7QVTSgSZPfWOszWmqUEtS6A=">
+    <img  src="https://juliesfamilykitchen.com/wp-content/uploads/2021/11/Crispy-Zinger-Burger-KFC-Chicken-Burger-Copycat-Recipe-500x375.jpg">
+    <img  src="https://www.dinneratthezoo.com/wp-content/uploads/2015/10/fajita-chicken-cheesesteak-sandwiches-21-480x270.jpg">
+    
+    </div>
+   <div class="finish"></div>
+    
+    <script>
+        var app=angular.module('myapp',['ngAnimate']);
+        app.controller('head',function($scope,$timeout){
+            $scope.al="AL";
+            $timeout(function(){
+                $scope.tayeb="TAYEB";
+            },1500);
+            $timeout(function(){
+                $scope.resturant="RESTURANT";
+            },2000);
+        });
+        app.controller('time',function($scope,$interval){
+            $scope.currenttime=new Date().toLocaleTimeString();
+            $interval(function(){
+                $scope.currenttime=new Date().toLocaleTimeString();
+            },1000);
+         $scope.choosephone=function(){
+             $scope.shownumbers=!$scope.shownumbers;
+         }
+        });
+        
+            app.controller('gift',function($scope){
+            $scope.names=['amjad yassen','rashed majed','kassem jaafar'];
+            $scope.addname=function(){
+                $scope.names.push($scope.name);
+                $scope.name="";
+            }
+        });
+    
+     
+    </script>
+    </body>
+</html>

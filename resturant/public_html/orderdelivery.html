@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myapp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+        <title>Order/Delivery/Al Tayeb Resto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="icon" href="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png" type="image/x-icon">
+    </head>
+    <body>
+        <style>
+            body{
+                background-image: url("https://static-cse.canva.com/blob/571508/Patterns303.jpg");
+              
+                background-size: 100%;
+                
+                overflow: scroll;
+                height:2000px;
+            }
+            .imgcontainer{
+                width:330px;
+                height:100px;
+                margin-left: 20px;
+            }
+            .imgcontainer img{
+                width:100px;
+                height: 100px;
+            }
+                 img:hover{
+                    transform: scale(1.1);
+                   
+                    transition-duration: 1s
+                }
+             .restlogo img{
+                width: 200px;
+                height:150px;
+                margin-left: 20px;
+                margin-bottom: 30px;
+            }
+              .order{
+                width: 600px;
+                height: 1300px;
+                margin-left: 75px;
+                margin-top: 50px;
+                border-radius: 7px;
+            }
+            .button{
+                margin-left: 20px;
+                margin-right: 5px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                width:120px;
+                height: 50px;
+            }
+            .button:hover{
+                background-color: lightblue;
+            }
+            .button:active{
+                background-color: lightcoral;
+            }
+            
+            .result{
+                width: 500px;
+                height: 600px;
+                position:fixed;
+                margin-left: 800px;
+                margin-top: -1550px;
+            }
+            #ta2{
+                width:400px;
+                height: 400px;
+                background-color:bisque;
+                
+            }
+            #reset{
+                width:380px;
+                margin-bottom: 10px;
+                background-color: red;
+                margin-left: 10px;
+                margin-right: 10px;
+                border-radius: 5px;
+                opacity: 0.7;
+            }
+            #textfield{
+               
+                width:300px;
+            }
+            .burgertitle{
+               
+           
+               background-color:#D27A32;
+             
+            }
+            .sandwichtitle{
+                  background-color: #D23D32;
+           
+            }
+            .drinktritle{
+               background-color: #32BFD2;
+              
+            }
+            #submit{
+                background-color: green;
+                border-radius: 6px;
+                width:380px;
+                height: 50px;
+                margin-left: 10px;
+                margin-right: 10px;
+                 
+                margin-bottom: 10px;
+            }
+            #submit a{
+                text-decoration: none;
+                color:black;
+            }
+           
+            .removeedit{
+                
+                margin-left: 40px;
+               text-decoration:buttontext;
+            }
+            .editsandwich{
+                margin-left:175px;
+                margin-top:-50px;
+                
+            }
+            input[ng-model="typeedit"]{
+                width:100px;
+            }
+            #bgcgreyop{
+                background-color:slategray;
+                width:250px;
+                
+                
+            }
+            .extcheese{
+               
+               text-decoration: none;
+                margin-left:5px;
+                margin-right: 3px;
+            }
+            .hot{
+              
+               color:firebrick;
+                 margin-left:5px;
+                margin-right: 3px;
+            }
+            .extsauce{
+                
+                margin-left: 5px;
+                margin-right: 3px;
+            }
+            
+            .t1{
+                color:goldenrod;
+               text-shadow: 0 -1px 4px black, 0 -2px 10px #ff0, 0 -10px 20px #FFA500 , 0 -18px 40px #F00, -4px -21px 3px #E645B8;
+            }
+            .buttest{
+                width:100px;
+                height: 100px;
+            }
+            abbr{
+                text-decoration: none;
+            }
+            #editburger{
+                
+            }
+            #black{
+                background-color: black;
+            }
+            .how{
+                position: absolute;
+                top:0;
+                margin-left: 230px;
+                margin-top: 50px;
+                 
+            }
+            .how ol{
+               
+                background-color:#4074b5;
+                color:springgreen;
+            }
+            .how h2{
+                background-color:sandybrown;
+                width: 250px;
+            }
+            .deleteedit{
+                
+                background-color:orange;
+            }
+            .deleteedit:hover{
+                background-color:tomato;
+                color:red;
+            }
+            .deleteedit:active{
+                background-color: yellow;
+            }
+            .howedit{
+            position:relative;
+                
+                
+            }
+            .howedit ol{
+         position: absolute;
+         background-color:slateblue;
+            }
+             li::marker{
+                content:'➕';
+            }
+            
+        </style>
+         <h1 align="center" class="t1" ng-controller="intro">{{o}}{{r}}{{d}}{{e}}{{r2}}</h1>
+        <div class="restlogo">
+            <a href="index.html"> <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover_square/4a4523f8-8558-4699-8698-a29a54c55e12.png" title="home page"></a>
+        </div>
+         <div class="how" ng-controller="showthehide">
+              <h2 align="center" title="click below"><strong>How it works ?</strong><br><i><small>click below for more informations</small></i></h2>
+             <button ng-click="unhide()">Click Here</button>
+             
+             <ol ng-show="showunhide">
+                 <li>choose food you want</li>
+                 <li>choose the quantity you want</li>
+                 <li>you can edit sandwich you choose/delete all the edits by clicking <q>delete all edits</q> </li>
+                 <li>you can delete a specific order/ delete all the order by clicking <q>reset</q></li>
+                 <li>finally, click order when you finish</li>
+                 <li><i>if you want to go back to home page, only click to the logo up</i></li>
+             </ol>
+             
+             
+         </div>
+   <!--     <div class="imgcontainer">
+            <a href="index.html" id="rot"><img src="https://icon-library.com/images/home-icon-png/home-icon-png-7.jpg"></a>
+            <a href="tel:+961 70389556" id="rot"><img src="https://purepng.com/public/uploads/large/purepng.com-phone-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596098aomr5.png"></a>
+            <a id="sorry" ><img src="https://previews.123rf.com/images/sarahdesign/sarahdesign1505/sarahdesign150504177/40149606-contact-us-icon.jpg"></a>
+        </div>  -->
+        <div class="order" style="background-color:#E8EEB9;">
+          <div class="burgertitle">
+        <h2 id="burgertitle">burger</h2><div class="howedit" ng-controller="howtoedit">
+            <button ng-click="detailsofediting()">Hint</button>
+            <ol ng-show="toedit" title="how to edit">
+              
+                <li><u>if you have 3 burger you want <strong>only one without cheese:</strong></u><br>
+                    you write: <q>1 without cheese </q>
+                </li>
+                <li>another example: 2 without sauce <br>
+                1 without sauce and cheese
+                </li>
+            </ol>
+        </div><hr>
+         
+         
+        <input type="button" class="button" id="but1" value="burger" onclick="burger()">
+         
+        <div ng-controller="order" class="editsandwich"  >
+            <input ng-model="typeedit" placeholder="edit preparation" id="editburger" autocomplete="on" disabled > 
+        <button ng-click="addedit()" id="addburger" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" id="extcheeseburger" disabled><abbr title="extra cheese">🧀</abbr></button>
+        <button class="hot" ng-click="hot()" id="hotburger" disabled><abbr title="hot">&#127798;</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="sosbur" disabled><abbr title="extra souse">🍾</abbr></button><button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop" ><li ng-repeat="x in products" >{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="but2" value="zinger" onclick="zinger()">
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="editzinger" autocomplete="on" disabled>
+        <button ng-click="addedit()" id="addzinger" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" id="cheesezinger" disabled><abbr title="extra cheese">🧀</abbr></button>
+        <button class="hot" ng-click="hot()" id="nohotzinger" disabled><abbr title="zinger is already hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="saucezinger" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="chicken" value="chicken burger" onclick="chicken()">
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="echick" autocomplete="on" disabled>
+        <button ng-click="addedit()" id="addch" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" id="exche" disabled><abbr title="extra cheese">🧀</abbr></button>
+        <button class="hot" ng-click="hot()"id="hotchick" disabled><abbr title="hot" >🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="exs" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()" >Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="mushroom" value="mushroom burger" onclick="mushroom()" >
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="editmush" autocomplete="on" disabled>
+        <button ng-click="addedit()" id="addmush" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" id="chemush" disabled><abbr title="extra cheese">🧀</abbr></button>
+        <button class="hot" ng-click="hot()" id="hotmush" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="sosmush" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="cheese" value="cheese burger" onclick="cheese()">
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="editche" autocomplete="on" disabled>
+            <button ng-click="addedit()" id="addche" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" id="cheche" disabled><abbr title="extra cheese">🧀</abbr></button>
+        <button class="hot" ng-click="hot()" id="hotche" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="sosche" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="fish" value="fish burger" onclick="fish()">
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="editfish" autocomplete="on" disabled>
+        <button ng-click="addedit()" id="addfish" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" disabled><abbr title="we can't add cheese to fish">🧀</abbr></button>
+        <button class="hot" ng-click="hot()" id="hotfish" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="sosfish" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <br> </div>
+        <div class="sandwichtitle">
+        <h2 id="sandwichtitle">Sandwiches</h2><hr>
+        <input type="button" class="button" id="chickensub" value="chicken sub" onclick="chickensub()">
+        <div ng-controller="order" class="editsandwich" >
+           <input ng-model="typeedit" placeholder="edit preparation" id="editsub" autocomplete="on" disabled>
+        <button ng-click="addedit()" id="addsub" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" id="chesub" disabled><abbr title="extra cheese">🧀</abbr></button>
+        <button class="hot" ng-click="hot()" id="hotsub" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="sossub" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="fahita" value="fajita" onclick="fahita()">
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="editfah" autocomplete="on" disabled>
+            <button ng-click="addedit()" id="addfah" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" id="chefah" disabled><abbr title="extra cheese">🧀</abbr></button>
+        <button class="hot" ng-click="hot()" id="hotfah" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="sosfah" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="filadelfia" value="philadelfia" onclick="filadelfia()">
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="editfal" autocomplete="on" disabled>
+            <button ng-click="addedit()" id="addfal" disabled>Add</button>
+        <button class="extcheese" ng-click="extracheese()" id="chefal" disabled><abbr title="extra cheese">🧀</abbr></button>
+        <button class="hot" ng-click="hot()" id="hotfal" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="sosfal" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="tawooks" value="tawook small" onclick="tawooks()">
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="edittaws" autocomplete="on" disabled>
+            <button ng-click="addedit()" id="addtaws" disabled>Add</button>
+        <button class="extcheese" ng-click="extragarlic()" id="gartaws" disabled><abbr title="زيادة ثوم">🧄</abbr></button>
+        <button class="hot" ng-click="hot()" id="hottawl" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()"  disabled><abbr title="no sauce fo tawook">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="tawookl" value="tawook large" onclick="tawookl()">
+         <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="edittawl" autocomplete="on" disabled>
+            <button ng-click="addedit()" id="addtawl" disabled>Add</button>
+        <button class="extcheese" ng-click="extragarlic()" id="gartawl" disabled><abbr title="زيادة ثوم">🧄</abbr></button>
+        <button class="hot" ng-click="hot()" id="hottawl" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()"  disabled><abbr title="no sauce fo tawook">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <input type="button" class="button" id="kafta" value="kafta" onclick="kafta()">
+        <div ng-controller="order" class="editsandwich" >
+            <input ng-model="typeedit" placeholder="edit preparation" id="editkaf" autocomplete="on" disabled>
+            <button ng-click="addedit()" id="addkaf" disabled>Add</button>
+        <button class="extcheese" ng-click="extrakatshup()" id="katkaf" disabled><abbr title="extra katshup">&#127813;</abbr></button>
+        <button class="hot" ng-click="hot()" id="hotkaf" disabled><abbr title="hot">🌶</abbr></button>
+        <button class="extsauce" ng-click="extrasauce()" id="soskaf" disabled><abbr title="extra sauce">🍾</abbr></button>
+        <button class="deleteedit" ng-click="deletealledit()">Delete all edits</button>
+        <ul id="bgcgreyop"><li ng-repeat="x in products">{{x}}<span ng-click="removeedit($index)" class="removeedit">❌</span></li></ul>
+        </div>
+        <br></div>
+        <div class="drinktritle">
+        <h2 id="drinkstitle">Drinks</h2><hr>
+        <input type="button" class="button" id="pepsi" value="pepsi" onclick="pepsi()">
+        <input type="button" class="button" id="miranda" value="miranda" onclick="miranda()">
+        <input type="button" class="button" id="7up" value="7up" onclick="up()">
+        <input type="button" class="button" id="water" value="water" onclick="water()">
+        <input type="button" class="button" id="laban" value="laban" onclick="laban()">
+        <input type="button" class="button" id="oj" value="orange juice" onclick="orangejuice()">
+        </div>
+        </div>
+        
+        <div class="result">
+            
+            <input type="reset" name="reset" id="reset" onclick="reset()"><br>
+            <textarea id="ta2" cols="29" rows="12">name                  quantity                 price    
+                                                   ===================================================== 
+        </textarea><br>
+         <label for="textfield">total:</label>
+        <input type="text" id="textfield" name="textfield" value="$">
+        <input type="reset" name="reset" id="reset" onclick="reset()">
+        <button id="submit"  ><a href="index.html">Order</a></button><br>
+        
+        
+        </div>
+        
+     
+        <script>
+  var quantity;
+            var price = 0;
+            var extra=1;
+            function burger() {
+                getquan();
+                var t = 5*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "burger:               " + quantity + "                      " +t+ "$ \n______________________________________________________\n";
+         document.getElementById("editburger").removeAttribute("disabled");
+         document.getElementById("addburger").removeAttribute("disabled");
+         document.getElementById("extcheeseburger").removeAttribute("disabled");
+         document.getElementById("hotburger").removeAttribute("disabled");
+         document.getElementById("sosbur").removeAttribute("disabled");
+    }
+       
+            function zinger() {
+                getquan();
+                var t = 6*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "zinger:               " + quantity + "                       " +t+ "$ \n______________________________________________________\n";
+          document.getElementById("editzinger").removeAttribute("disabled");
+           document.getElementById("addzinger").removeAttribute("disabled");
+            document.getElementById("cheesezinger").removeAttribute("disabled");
+            
+              document.getElementById("saucezinger").removeAttribute("disabled");
+    }
+             function chicken() {
+                getquan();
+                var t = 5*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "chicken burger:       " + quantity + "                      " +t+ "$ \n______________________________________________________\n";
+          document.getElementById("echick").removeAttribute("disabled");
+          document.getElementById("addch").removeAttribute("disabled");
+          document.getElementById("exche").removeAttribute("disabled");
+          document.getElementById("exs").removeAttribute("disabled");
+          document.getElementById("hotchick").removeAttribute("disabled");
+    }
+             function mushroom() {
+                getquan();
+                var t = 6*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "mushroom burger:      " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+           document.getElementById("editmush").removeAttribute("disabled");
+          document.getElementById("addmush").removeAttribute("disabled");
+          document.getElementById("chemush").removeAttribute("disabled");
+          document.getElementById("sosmush").removeAttribute("disabled");
+          document.getElementById("hotmush").removeAttribute("disabled");
+    }
+             function cheese() {
+                getquan();
+                var t = 7*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "cheese burger:        " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+         document.getElementById("editche").removeAttribute("disabled");
+          document.getElementById("addche").removeAttribute("disabled");
+          document.getElementById("cheche").removeAttribute("disabled");
+          document.getElementById("sosche").removeAttribute("disabled");
+          document.getElementById("hotche").removeAttribute("disabled");
+    }
+             function fish() {
+                getquan();
+                var t = 6*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "fish burger:          " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+        document.getElementById("editfish").removeAttribute("disabled");
+          document.getElementById("addfish").removeAttribute("disabled");
+          document.getElementById("sosfish").removeAttribute("disabled");
+          document.getElementById("hotfish").removeAttribute("disabled");
+    }
+             function chickensub() {
+                getquan();
+                var t = 10*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "chicken sub:          " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+           document.getElementById("editsub").removeAttribute("disabled");
+          document.getElementById("addsub").removeAttribute("disabled");
+          document.getElementById("chesub").removeAttribute("disabled");
+          document.getElementById("sossub").removeAttribute("disabled");
+          document.getElementById("hotsub").removeAttribute("disabled");
+    }
+             function fahita() {
+                getquan();
+                var t = 9*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "fajita:               " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+           document.getElementById("editfah").removeAttribute("disabled");
+          document.getElementById("addfah").removeAttribute("disabled");
+          document.getElementById("chefah").removeAttribute("disabled");
+          document.getElementById("sosfah").removeAttribute("disabled");
+          document.getElementById("hotfah").removeAttribute("disabled");
+    }
+             function filadelfia() {
+                getquan();
+                var t = 8*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "philadelfia:          " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+            document.getElementById("editfal").removeAttribute("disabled");
+          document.getElementById("addfal").removeAttribute("disabled");
+          document.getElementById("chefal").removeAttribute("disabled");
+          document.getElementById("sosfal").removeAttribute("disabled");
+          document.getElementById("hotfal").removeAttribute("disabled");
+    }
+             function tawooks() {
+                getquan();
+                var t = 5*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "tawook small:         " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+           document.getElementById("edittaws").removeAttribute("disabled");
+          document.getElementById("addtaws").removeAttribute("disabled");
+          document.getElementById("gartaws").removeAttribute("disabled");
+          document.getElementById("hottaws").removeAttribute("disabled");
+    }
+             function tawookl() {
+                getquan();
+                var t = 7*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "tawook large:         " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+           document.getElementById("edittawl").removeAttribute("disabled");
+          document.getElementById("addtawl").removeAttribute("disabled");
+          document.getElementById("gartawl").removeAttribute("disabled");
+          document.getElementById("hottawl").removeAttribute("disabled");
+    }
+             function kafta() {
+                getquan();
+                var t = 7*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "kafta:                " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+          document.getElementById("editkaf").removeAttribute("disabled");
+          document.getElementById("addkaf").removeAttribute("disabled");
+          document.getElementById("katkaf").removeAttribute("disabled");
+          document.getElementById("soskaf").removeAttribute("disabled");
+          document.getElementById("hotkaf").removeAttribute("disabled");
+    }
+            function pepsi() {
+                getquan();
+                var t = 1*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "pepsi:                " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+            }
+            function miranda() {
+                getquan();
+                var t = 1*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "miranda:              " + quantity + "                      " +t+  "$\n______________________________________________________\n";
+            }
+            function up() {
+                getquan();
+                var t = 1*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "7up:                  " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+            }
+            function water() {
+                getquan();
+                var t = 0.5*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "water:                " + quantity + "                      " +t+ "$\n______________________________________________________\n";
+            }
+            function orangejuice() {
+                getquan();
+                var t = 3.5*parseInt(quantity);
+                price +=t;
+                gettotal();
+                addzero();
+                document.getElementById("ta2").value += "orange juice:         " + quantity + "                       " +t+ "$\n______________________________________________________\n";
+            }
+           
+            function getquan() {
+                do {
+                    quantity = prompt("enter quantity:");
+                } while (quantity > 199 || quantity < 1);
+            }
+            function gettotal() {
+                document.getElementById("textfield").value += price;
+            }
+            function addzero() {
+                if (quantity.length == 1) {
+                    quantity = "00" + quantity;
+
+                } else if (quantity.length == 2) {
+                    quantity = "0" + quantity;
+                }
+            }
+            
+            function reset() {
+                document.getElementById("ta2").value = "food                  quantity                 price\n=====================================================\n";
+                document.getElementById("textfield").value = "";
+                price = 0;
+                
+            }
+            var app=angular.module('myapp',['ngAnimate']);
+            app.controller('order',function($scope){
+               $scope.products=[];
+               $scope.addedit=function(){
+                   $scope.products.push($scope.typeedit);
+                   $scope.typeedit="";
+               }
+               $scope.extracheese=function(){
+                   $scope.products.push("extra cheese زيادة جبن");
+               }
+               $scope.hot=function(){
+                   $scope.products.push("Hot        حار");
+               }
+               $scope.extrasauce=function(){
+                   $scope.products.push("extra sauce      زيادة صوص");
+               }
+               $scope.extragarlic=function(){
+                   $scope.products.push("extra garlic       زيادة ثوم");
+               }
+               $scope.extrakatshup=function(){
+                   $scope.products.push("extra katshup");
+               }
+               $scope.removeedit=function(x){
+                   $scope.products.splice(x,1);
+               }
+               $scope.deletealledit=function(){
+                   $scope.products=[];
+               }
+               
+            });
+                  app.controller('intro',function($scope,$timeout){
+       $scope.o="O";
+       $timeout(function(){
+           $scope.r="r";
+       },1000);
+       $timeout(function(){
+           $scope.d="d";
+       },1500);$timeout(function(){
+           $scope.e="e";
+       },2000);$timeout(function(){
+           $scope.r2="r";
+       },2500);
+    });
+      app.controller('showthehide',function($scope){
+         $scope.unhide=function(){
+             $scope.showunhide=!$scope.showunhide;
+         } 
+         
+      });
+       app.controller('howtoedit',function($scope){
+             $scope.detailsofediting=function(){
+                 $scope.toedit=!$scope.toedit;
+             }
+         });
+       document.getElementById('sorry').addEventListener('click',function(){alert('SORRY sir ,\nyou cannot email us right now accordind to SYSTEM PROBLEMS\nplease try later and THANK YOU');});
+        document.getElementById('submit').addEventListener('click',function(){alert('thank you for ordering');});
+        
+     
+      
+        </script>
+    </body>
+</html>

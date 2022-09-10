@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>http://www.carsforrent.com</title>
+        <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC5KXf3gPqFokpQLKSoVyQIyFxAZUTeTUXdPnq9uIAgzVTj9AmHv7pvJnX2ELJy5VHcIA&usqp=CAU" type="image/x-icon"/>
+              
+</head>
+ 
+<style>
+body{
+overflow:scroll;
+	height:1500px;
+	background-repeat:no-repeat;
+	background-size:100%;
+	}
+	/*nav bar*/
+ nav{
+	width:100%;
+	overflow:auto;
+	opacity:0.7;
+ }
+li a:hover{
+	background:yellow;
+	color:blue;
+	transform:scale(1.1);
+	}
+ ul{
+  padding:0.9rem;
+ 	margin:0;
+	list-style:none;
+	position:fixed;
+ }
+ li{
+ 
+ 	float:left;
+ }
+ nav a{
+ 
+ 	width:150px;
+	display:block;
+	text-decoration:none;
+	text-align:center;
+	 background:#adc3ff; 
+	font-size:20px;
+	color:black;
+	padding:10px 5px;
+	font-family:arial;
+	border:1px solid black;
+	transition:1s;
+ }
+ /*nav bar*/
+ .pic:hover{
+	transform:scale(1.1);
+	z-index:2;
+ }
+ul.overmenue{
+ position:fixed;
+ 	width:100%;
+	height:50px;
+	background:#1818cc;
+	
+	
+ }
+  
+ #uptodown pre{
+ text-align:center;
+	font-size:50px;
+	line-height: 2;
+	position:relative;
+	animation: heading;
+	animation-duration: 2s;
+	/*animation-iteration-count:infinite;*/
+	animation-fill-mode:forward;
+	animation-timing-function:linear;
+}
+@keyframes heading{
+	0%{top:-75px;color:red; }
+	50%{top:0;color:green;}
+	75%{top:0;color:blue;}
+	 100%{top:-20;
+	 text-shadow:  0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0000FF, 0 0 30px #0000FF, 0 0 40px #0000FF, 0 0 55px #0000FF, 0 0 75px #0000FF;
+	color:#0000FF;
+	 }
+	}
+ #blue{
+ 	color:blue;
+ }
+ img{
+ 	margin-top:366px;
+	margin-left:10px;
+ }
+ #textfamily{
+ width:1100px;
+ height:200px;
+ margin-left:10%;
+ 	color:black;
+	text-align:center;
+	margin-top:100px;
+	font-size:20px;
+	font-family:arial;
+	background:#4576FF;
+	opacity:0.8;
+	
+ }
+ .m1{
+	width:250px;
+	margin:0 10px;
+	box-shadow:0 0 20px 2px rgb(0,0,0,.1);
+	transition:1s;
+}
+ .m1 img{
+ 	display:block;
+	width:50px;
+	border-radius:2px;
+ }
+ .m1:hover{
+ 	transform:scale(1.2);
+	z-index:2;
+ }
+ #strong{
+	font-size:20px;
+	color:blue;
+ }
+ .martable{
+ 	margin-top:-910px;
+	background:#808080;
+ }
+ #blue{
+ 	color:blue;
+ }
+ .pad{
+ 	padding:20px;
+ }
+ #tt{
+ 	font-size:30px;
+	text-shadow:  0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0000FF, 0 0 30px #0000FF, 0 0 40px #0000FF, 0 0 55px #0000FF, 0 0 75px #0000FF;
+	color:#0000FF;
+ }
+ .mardate{
+ 	margin-left:400px;
+	color:blue;
+ }
+ .logoimgn {
+ 	width:120px;
+	height:110px;
+	padding:10px 10px;
+	margin-top:20px;
+	margin-left:18px;
+	display:block;}
+ .logoimg1 {
+ 	width:120px;
+	height:110px;
+	padding:10px 10px;
+	margin-top:-80px;
+	margin-left:18px;
+	display:block;
+ } .logoimg2 {
+ 	width:100px;
+	height:90px;
+	padding:5px 10px;
+	margin-top:-110px;
+	margin-left:115px;
+	display:block;
+ }.logoimg3 {
+ 	width:100px;
+	height:70px;
+	padding:5px 10px;
+	margin-top:-90px;
+	margin-left:220px;
+	display:block;
+ }
+ .imgoftable{
+ 	margin-top:-24px;
+	width:100%;
+ }
+ 
+ 
+ 
+</style>
+ <body background="https://www.ecorentacar.com/wp-content/uploads/2019/03/Luxury-Fleet-Banner.jpg">
+<nav  >
+  <ul class="overmenue">
+  <li><a href="index.html">Home &#127969;</a></li><li><a href="about%20us.html">About us &#127980;</a></li>
+  <li><a href="contact%20us.html">Contact us &#9997;</a></li><li><a href="sign%20up.html">SIGN UP &#128101;</a></li>
+  <li><a href="help.html">Help &#9757;</a></li>&nbsp;
+          <label for="chose"></label>
+        <input  list="type"id="chose" name="chose" placeholder="search for a car">
+        <datalist  id="type">
+            <option value="8-series" id="8-series">bmw</option>
+            <option value="x6">bmw</option>
+            <option value="4-series">bmw</option>
+            <option value="mercedes cla-class">mercedes</option>
+            <option value="mercedes gle-class coupe">mercedes</option>
+            <option value="mercedes s-class">mercedes</option>
+            <option value="audi a7">audi</option>
+            <option value="audi q8">audi</option>
+            <option value="audi e-tron">audi</option>
+            </option>
+        </datalist>
+  <li><input type="date"class="mardate"/></li>
+  </ul>
+  </nav>
+
+<header id="uptodown"><pre id="blue">Car Rental Company</pre></header>
+<!-- logo of cars +links -->
+<div class="logoimgn"><a href="https://www.mercedes-benz.com/en/"><img src="https://www.motortrend.com/uploads/makes/mercedes_benz.png"class="logoimg1"></a>
+<a href="https://www.bmw.com/en/index.html"><img src="https://www.carlogos.org/car-logos/bmw-logo-1997-1200x1200.png"class="logoimg2"></a>
+<a href="https://www.audi.com/en.html"><img src="https://mpng.subpng.com/20180720/ghf/kisspng-audi-rs-3-car-audi-q7-audi-a4-audi-logo-5b517a9a5ce159.3301748915320664583805.jpg"class="logoimg3"></a>
+
+
+</div>
+
+<pre id="textfamily">In today’s world hiring cars is not limited for daily activities, such as <i/>wedding, parties, tours, and even business e.g</i>.
+  Also people can rent car for short and long term period and there are many companies that offer 
+opportunities for people who can not afford to buy a car as well as for those who need car for some period of time
+Save money on rental cars by searching for car rental deals on <b>car rental company(CRC)</b>.
+ car rental company searches for rental car deals on hundreds of car rental sites to help you find the cheapest car rental.
+  Whether you are looking for an airport car rental or just a cheap car rental near you, you can compare discount car rentals 
+  and find the best deals faster at<b/> CRC</b>
+ <b/> CRC</b> will allow you to rent best cars in best prices , our company have all types of cars for rent from the oldest to newst .
+</pre>
+<img class="imgoftable" src="https://static.vecteezy.com
+/system/resources/previews/001/987/871/original/abstract-black-stripes-diagonal-background-free-vector.jpg">
+<!-- the table -->
+<table align="center"class="martable" border="4">
+<caption id="tt">NEWEST</caption>
+<tr>
+<!-- mercedes cars -->
+<th id="blue" >Mercedes-Benz</th>
+<td align="center"><pre id="strong"><a href="m1.html"><img class="m1" src="https://www.motortrend.com/uploads/sites/10/2022/02/2022-mercedes-benz-cla-coupe-250-4wd-sedan-angular-front.png"></a><br/>2022 Mercedes-benz
+ CLA-Class</pre></td>
+<td align="center"><pre id="strong"><a href="m2.html"/><img class="m1" src="https://www.motortrend.com/uploads/sites/10/2020/12/2021-mercedes-benz-gle-coupe-amg-53-4wd-suv-angular-front.png"></a><br/>
+2022 Mercedes-Benz
+ GLE-Class coupe</pre></td>
+<td align="center"class="pad"><p id="strong"><img class="m1"id="outofsold"src="https://www.motortrend.com/uploads/izmo/mercedes_benz/s_class/2021/s_class.png"><br/><br/>2022 Mercedes-Benz S-Class</p></td>
+</tr>
+<tr>
+<!--bmw cars -->
+ <th id="blue" >BMW</th>
+ <td align="center"><p id="strong"><a href="bmw1.html"/><img class="m1"src="https://www.motortrend.com/uploads/sites/10/2022/02/2022-bmw-8-series-m850i-4wd-convertible-angular-front.png"></a><br/>2022 BMW 8-Series</p></td> 
+ <td align="center"><p id="strong"><a href="bmw2.html"/><img class="m1"src="https://www.motortrend.com/uploads/sites/10/2021/10/2022-bmw-x6-m50i-4wd-suv-angular-front.png"></a><br/>2022 BMW X6</p></td>
+  <td align="center"><p id="strong"><a href="bmw3.html"/><img class="m1"src="https://www.motortrend.com/uploads/sites/10/2021/08/2022-bmw-4-series-430i-coupe-angular-front.png"></a><br/>2022 BMW 4-Series</p></td>
+</tr>
+<tr>
+<!-- audi cars -->
+ <th id="blue" >Audi</th>
+ <td align="center"><p id="strong"><a href="audi1.html"/><img class="m1"src="https://www.motortrend.com/uploads/sites/10/2021/10/2022-audi-a7-sportback-premium-plus-4wd-5door-hatchback-angular-front.png"></a><br/>2022 Audi A7</p></td> 
+ <td align="center"><p id="strong"><a href="audi2.html"/><img class="m1"src="https://www.motortrend.com/uploads/sites/10/2021/10/2022-audi-q8-premium-plus-4wd-suv-angular-front.png"></a><br/>2022 Audi Q8 </p></td>
+  <td align="center"><p id="strong"><a href="audi2.html"/><img class="m1"src="https://www.motortrend.com/uploads/2021/04/2022-Audi-Q4-Sportback-E-Tron.png"></a><br/><br/>2022 Audi Q4 Sportback E-Tron</p></td>
+</tr>
+
+</table>
+ 
+ <script>
+ document.getElementById("outofsold").addEventListener('click',function(){alert('SORRY, this car is out of sold right now \nplease try later');})
+ 
+ let i=document.getElementById("chose");
+ if(i.type==="8-series"){
+     window.location.href="http://www.google.com"
+ }
+ </script>
+
+</body>
+</html>
